@@ -2,6 +2,12 @@ import random
 from bs4 import BeautifulSoup as BS
 import requests
 
+'''
+This script generates a random word (with preference to the longest word found)
+from merriam webster, that contains the prompt. the prompt is a series of letters where the word contains the prompt
+this was made as a fun experiment for the game 'bombparty'
+'''
+
 def main() -> None:
     '''
     main flow
