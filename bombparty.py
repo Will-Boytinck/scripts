@@ -13,10 +13,13 @@ def main() -> None:
     main flow
     '''
     # get prompt
-    prompt = input("Words containing: ")
-    # get list of words
-    random_word = scrape(prompt)
-    print(f"--------------{random_word}--------------")
+    while True:
+        prompt = input("Words containing: ")
+        if prompt == "exit":
+            exit()
+        # get list of words
+        random_word = scrape(prompt)
+        print(f"--------------{random_word}--------------")
 
     
 
