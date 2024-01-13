@@ -12,14 +12,37 @@ def main() -> None:
     '''
     main flow
     '''
-    # get prompt
-    while True:
-        prompt = input("Words containing: ")
-        if prompt == "exit":
-            exit()
-        # get list of words
-        random_word = scrape(prompt)
-        print(f"--------------{random_word}--------------")
+    # get mode
+    mode = input("mode: ")
+    
+    # auto mode (wip)
+    if mode == 'auto':
+        bp_url = input("url: ")
+        #while True:
+        data = requests.get(bp_url)
+        print(data.text)
+        '''
+            soup = BS(data.text, 'html.parser')
+            prompt = soup.find_all("div", {"class": "syllable"}) # this doesn't work because it goes to the 'loading' page first, id have to bypass it
+            #prompt = soup.find('div', class_='quickRules')
+            if prompt:
+                print(prompt.text)
+            else:
+                print("prompt not found")
+        '''
+                
+            #random_word = scrape(prompt.text)
+            #print(f"--------------{random_word}--------------")
+        
+    # manual mode    
+    else:
+        while True:
+            prompt = input("Words containing: ")
+            if prompt == "exit":
+                exit()
+            # get list of words
+            random_word = scrape(prompt)
+            print(f"--------------{random_word}--------------")
 
     
 
